@@ -1,4 +1,4 @@
-/**
+**
  * <p> Title: calculator. </p>
  
  * <p> Copyright: Nikhil Â© 2018 </p>
@@ -15,22 +15,31 @@ import java.util.Scanner;
 public class classactivity {
 	public static void main(String[] args)
 	{
-		double x,y,z,k,l;
+		double  x,y,z,k,l,m,e,f,s,a,b,j,v,d;
 		 Scanner nikhil = new Scanner(System.in);
 		 //roots
 		 System.out.println("Enter measured value: "); // here you can enter any value which you kept as measured term
 		    x = nikhil.nextDouble();               // double helps to compute both integer and decimal values
 		    System.out.println("Enter error value: "); // here you can enter any value which you kept as error term
 		    y= nikhil.nextDouble();               // double helps to compute both integer and decimal values   
-		    System.out.println("Enter power value : "); // here you can enter any value which you kept as power
-		    z= nikhil.nextDouble();               // double helps to compute both integer and decimal values 
-		    k=y/Math.abs(x);
-		    l=k*Math.abs(z)*Math.abs(Math.pow(x,z));
-		    
-		    System.out.println("power: "+ +Math.pow(x,z));
-		    System.out.println("error term: "+ l);
-		    System.out.println("result after significance: " +getSignificant(Math.pow(x,z),5)+" ± " + getSignificant(l,1));
-		    
+		
+		  //code for square
+            z = Math.pow(x, 2);
+            k =y/Math.abs(x);
+            l = (2)*k*Math.abs(z);
+            System.out.println("Square of the error term : "+z+" +" + getSignificant(l,1));
+
+
+            //code for square root
+             m =  Math.sqrt(x);
+            e = (0.5)*k*Math.abs(m);
+            System.out.println("The Square root of the error term : "+ m+"  ±  "+ getSignificant(e,1));
+           
+            // code for cube root
+            f= Math.cbrt(x);
+            s=Math.abs(0.33333333333333333333333333333333)*k*Math.abs(f);
+             System.out.println("The cube root of the error term : "+ f+"  ±  "+ getSignificant(s,1));
+
 		       nikhil.close();
 		
 		}
@@ -43,3 +52,5 @@ public class classactivity {
 			}	
 			    
 	}
+	
+	
