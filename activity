@@ -1,0 +1,45 @@
+/**
+ * <p> Title: calculator. </p>
+ 
+ * <p> Copyright: Nikhil Â© 2018 </p>
+ 
+ * @author Nikhil
+ * @version 4.00	2018-03-09 calculator is made to do root function for both measured and error terms
+ */
+package roots;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+import java.util.Scanner;
+
+public class classactivity {
+	public static void main(String[] args)
+	{
+		double x,y,z,k,l;
+		 Scanner nikhil = new Scanner(System.in);
+		 //roots
+		 System.out.println("Enter measured value: "); // here you can enter any value which you kept as measured term
+		    x = nikhil.nextDouble();               // double helps to compute both integer and decimal values
+		    System.out.println("Enter error value: "); // here you can enter any value which you kept as error term
+		    y= nikhil.nextDouble();               // double helps to compute both integer and decimal values   
+		    System.out.println("Enter power value : "); // here you can enter any value which you kept as power
+		    z= nikhil.nextDouble();               // double helps to compute both integer and decimal values 
+		    k=y/Math.abs(x);
+		    l=k*Math.abs(z)*Math.abs(Math.pow(x,z));
+		    
+		    System.out.println("power: "+ +Math.pow(x,z));
+		    System.out.println("error term: "+ l);
+		    System.out.println("result after significance: " +getSignificant(Math.pow(x,z),5)+" ± " + getSignificant(l,1));
+		    
+		       nikhil.close();
+		
+		}
+		    
+		 // significance method
+			private static String getSignificant(double value, int sigFigs) {
+				 MathContext mc = new MathContext(sigFigs, RoundingMode.DOWN);
+		         BigDecimal bigDecimal = new BigDecimal(value, mc);
+		         return bigDecimal.toPlainString();
+			}	
+			    
+	}
